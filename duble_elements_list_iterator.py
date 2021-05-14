@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May 14 14:12:36 2021
-
-@author: Savra
-"""
-
 class DubleElementsListIterator():
     def __init__(self, lst):
         self.lst = lst
