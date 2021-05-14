@@ -12,5 +12,6 @@ class RandomIterator():
             return random()
         else:
             raise StopIteration
+
 for x in RandomIterator(10):
     print(x)
