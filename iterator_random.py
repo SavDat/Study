@@ -1,6 +1,8 @@
 from random import random
 
 class RandomIterator():    
+    def __iter__(self):
+        return self
     def __init__(self, k):
         self.k = k
         self.i = 0
@@ -10,7 +12,5 @@ class RandomIterator():
             return random()
         else:
             raise StopIteration
-    def __iter__(self):
-        return self
 for x in RandomIterator(10):
     print(x)
