@@ -11,31 +11,22 @@ class multifilter:
         return neg == 0
 
     def __init__(self, iterable, *funcs, judge=judge_any):
-        self.index = 0
         self.iterable = iterable
         self.funcs = funcs
         self.judge = judge
 
     def __iter__(self):
-        return self
-
-    def __next__(self):
-        pos, neg = 0, 0
-        if self.index < len(self.iterable):
-            self.index += 1
-            elem = self.iterable[self.index - 1]
+        for elem in self.iterable:
+            pos, neg = 0, 0
             for func in self.funcs:              
                 if func(elem):
                     pos += 1
                 else:
                     neg += 1    
             if self.judge(pos, neg) == True:
-                return elem
-            else:
-                return self.__next__()
-        raise StopIteration
+                yield elem
 
-#------------------------Block Input------------------------------------
+#------------------------Block Input-------------------------------->>>
 
 def mul2(x):
     return x % 2 == 0
